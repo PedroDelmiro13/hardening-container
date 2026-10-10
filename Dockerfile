@@ -1,16 +1,17 @@
-FROM ubuntu:latest
+FROM node:20-bookworm-slim
 
 WORKDIR /app
 
-COPY . .
+COPY app/package*.json ./
+RUN npm install --omit=dev
 
-RUN apt-get update
-RUN apt-get install -y nodejs npm
+COPY app/ .
 
-RUN npm install
+ENV NODE_ENV=production
+ENV PORT=3000
 
-ENV DB_PASSWORD=123456
+USER node
 
 EXPOSE 3000
 
-CMD ["node", "app/server.js"]
+CMD ["node", "server.js"]

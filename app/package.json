@@ -1,0 +1,10 @@
+{
+  "name": "hardening-container",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplicação exemplo para atividade de hardening de containers",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
